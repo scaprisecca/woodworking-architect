@@ -1,0 +1,26 @@
+# FreeCAD temp files
+*.FCStd1
+*.fcstd1
+*.lock
+*.tmp
+*_backup*
+
+# Large binary exports (track selectively if needed)
+*.stl
+*.step
+*.stp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Photos (too large for git, manage externally)
+projects/*/intake/photos/*.jpg
+projects/*/intake/photos/*.jpeg
+projects/*/intake/photos/*.png
+projects/*/intake/photos/*.heic
+
+# Rendered images (regenerable from FreeCAD)
+projects/*/deliverables/renders/*.png
+projects/*/deliverables/renders/*.jpg
+projects/*/models/exports/*.png
