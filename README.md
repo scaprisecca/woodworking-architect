@@ -1,0 +1,164 @@
+# Woodworking Architect
+
+Claude Code project for managing a custom cabinetry and woodworking business — from initial client consultation through final delivery.
+
+---
+
+## Starting a New Project
+
+### Step 1 — Create the project
+```
+/new-project
+```
+You'll be prompted for client name, project type, address, and initial notes. This creates a standardized folder at `projects/{client}-{type}-{YYYY-MM}/`.
+
+### Step 2 — Generate a consultation checklist
+```
+/consult-prep {project-type}
+```
+Run this **before** the site visit. Gives you a printable checklist of questions to ask, measurements to take, photos to capture, and issues to watch for.
+
+**Project types:** `kitchen` · `bathroom` · `closet` · `entertainment-center` · `bookcase` · `shelving` · `general-woodworking`
+
+### Step 3 — Do the site visit
+On-site, fill in:
+- `intake/measurements.md` — all room dimensions and obstacles
+- `intake/photos/` — add your photos
+- `intake/client-notes.md` — preferences, transcript, reference images
+
+### Step 4 — Design
+```
+/design {project-folder}
+```
+Reads all intake data and produces 2-3 layout options with pros/cons. Once the client approves one, the design is finalized.
+
+### Step 5 — Cut list
+```
+/cut-list {project-folder}
+```
+Generates a part-by-part cut list, sheet nesting diagrams, shopping list, and cutting sequence from the finalized design.
+
+### Step 6 — 3D Model
+```
+/freecad-model {project-folder}
+```
+Creates the 3D model in FreeCAD and captures multi-angle views for the client presentation. **FreeCAD must be running with the MCP workbench active.**
+
+### Step 7 — Quote
+```
+/quote {project-folder}
+```
+Produces an internal cost breakdown and a professional client-facing quote. Pulls from the cut list and your pricing data in `pricing/`.
+
+### Step 8 — Present
+```
+/present {project-folder}
+```
+Compiles everything — design summary, 3D renders, and quote — into a single client presentation document.
+
+---
+
+## Slash Commands
+
+| Command | What it does |
+|---------|-------------|
+| `/new-project` | Creates a new client project folder from the standard template. Prompts for client name, project type, address, and notes. |
+| `/consult-prep [type]` | Generates a printable site-visit checklist tailored to the project type: questions to ask, measurements, photos, and issues to watch for. |
+| `/design [folder]` | Reads all intake data and produces 2-3 layout options with ASCII floor plans, storage analysis, and pros/cons for each. |
+| `/cut-list [folder]` | Takes the finalized design and outputs a complete cut list, sheet nesting diagrams (minimize waste), shopping list, and recommended cutting sequence. |
+| `/freecad-model [folder]` | Creates the 3D model in FreeCAD via MCP server. Captures isometric, front, top, and side views. Exports for client presentations. |
+| `/quote [folder]` | Estimates material costs and labor, applies markup rules, and generates an internal cost breakdown + a client-facing quote. |
+| `/present [folder]` | Compiles design description, 3D renders, and quote into a professional client presentation document. |
+
+---
+
+## Sub-Agents
+
+Agents are invoked automatically by the slash commands above. You can also invoke them directly by asking Claude to use a specific agent.
+
+| Agent | What it specializes in |
+|-------|----------------------|
+| **consultation-prep** | Generates comprehensive pre-visit checklists. Knows what to ask, measure, and photograph for each project type. Reads the project-type templates from `templates/`. |
+| **space-design-expert** | Designs optimal layouts from room dimensions and client preferences. Understands cabinet standards, ergonomics, storage optimization, and creative solutions for awkward spaces. Produces 2-3 options with ASCII floor plan views. |
+| **cut-list-materials** | Converts a finalized design into a precise cut list with kerf allowances, sheet nesting, grain direction tracking, edge banding notes, and a full shopping list. Knows your tool limitations (no CNC, Kreg Accu-Cut for ripping). |
+| **freecad-modeler** | Creates 3D cabinet models in FreeCAD via the MCP server. Handles all FreeCAD complexity. Builds cabinets as assemblies of individual panels, color-coded by material. Exports views and PDFs via FreeCAD's Python API. |
+| **pricing-estimator** | Calculates material costs from your pricing data, estimates labor hours by task category, applies markup rules, and produces both an internal breakdown and a clean client-facing quote. |
+
+---
+
+## Project Folder Structure
+
+Each project lives at `projects/{client}-{type}-{YYYY-MM}/`:
+
+```
+projects/smith-entertainment-center-2026-04/
+├── README.md                    ← Project status, dates, client info
+├── intake/
+│   ├── client-notes.md          ← Preferences, transcript, reference images
+│   ├── measurements.md          ← All room dimensions and obstacles
+│   └── photos/                  ← Site photos
+├── design/
+│   ├── layout-options/          ← 2-3 options generated by /design
+│   └── final/                   ← Client-approved design
+├── models/
+│   ├── freecad/                 ← .FCStd FreeCAD files
+│   └── exports/                 ← Rendered views (.png)
+├── cut-lists/
+│   ├── cut-list.md              ← Part-by-part cut list
+│   ├── nesting.md               ← Sheet nesting diagrams
+│   └── cutting-sequence.md      ← Recommended cutting order
+├── materials/
+│   └── shopping-list.md         ← Complete materials and hardware list
+├── quotes/
+│   ├── internal-estimate.md     ← Full cost breakdown (not for client)
+│   └── client-quote.md          ← Professional client-facing quote
+└── deliverables/
+    ├── client-presentation.md   ← Final compiled presentation
+    ├── renders/                 ← High-res renders for client
+    └── pdfs/                    ← Exported drawings
+```
+
+---
+
+## Reference Library
+
+Stored in `reference/` — add to these as your knowledge grows.
+
+| File/Folder | Contents |
+|------------|---------|
+| `reference/tools-inventory.md` | Your shop tools with capabilities and limitations |
+| `reference/standards/cabinet-dimensions.md` | Standard cabinet sizes (base, wall, tall, drawers) |
+| `reference/standards/ergonomics.md` | Work triangle, reach zones, counter heights, ADA |
+| `reference/standards/building-codes.md` | Code considerations for kitchens, bathrooms, fireplaces |
+| `reference/materials/sheet-goods.md` | Plywood grades, MDF, melamine, edge banding, cutting tips |
+| `reference/materials/hardwoods.md` | Species, pricing, grades, board foot calculations |
+| `reference/materials/hardware-catalog.md` | Hinges, drawer slides, pulls, shelf pins, fasteners |
+| `reference/techniques/joinery.md` | Pocket screws, dados, rabbets, adhesives — when to use each |
+| `reference/techniques/finishing.md` | Paint, stain, clear coat — processes and product recommendations |
+| `reference/learnings/` | Post-project retrospectives — what worked, what didn't |
+| `reference/inspiration/` | Design inspiration images and reference material |
+| `reference/transcripts/` | Saved articles, video transcripts, educational content |
+
+---
+
+## Pricing Setup
+
+Before generating quotes, fill in your actual numbers:
+
+| File | What to fill in |
+|------|----------------|
+| `pricing/material-prices.md` | Current local prices for sheet goods, hardwood, hardware, supplies |
+| `pricing/labor-rates.md` | Your hourly rate and per-task time estimates |
+| `pricing/markup-rules.md` | Material markup %, deposit schedule, minimum project price |
+
+---
+
+## FreeCAD Setup
+
+To use `/freecad-model`:
+1. Open FreeCAD
+2. Switch to the **FreeCAD MCP** workbench
+3. Click the toolbar button to **Start RPC Server**
+4. Then run `/freecad-model` — the MCP connection is configured automatically
+
+FreeCAD files save to `models/freecad/`, exported views to `models/exports/`.
