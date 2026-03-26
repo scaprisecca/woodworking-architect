@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(cp -r:*)",
+      "Bash(ls:*)",
+      "Bash(freecad:*)",
+      "Bash(uvx freecad-mcp:*)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:api.github.com)",
+      "WebSearch",
+      "mcp__freecad__create_document",
+      "mcp__freecad__create_object",
+      "mcp__freecad__edit_object",
+      "mcp__freecad__delete_object",
+      "mcp__freecad__execute_code",
+      "mcp__freecad__get_view",
+      "mcp__freecad__insert_part_from_library",
+      "mcp__freecad__get_objects",
+      "mcp__freecad__get_object",
+      "mcp__freecad__get_parts_list",
+      "mcp__freecad__list_documents",
+      "Bash(git commit:*)"
+    ]
+  },
+  "mcpServers": {
+    "freecad": {
+      "command": "uvx",
+      "args": [
+        "freecad-mcp"
+      ]
+    }
+  },
+  "plansDirectory": "./plans"
+}
