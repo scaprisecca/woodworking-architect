@@ -5,8 +5,8 @@ Last updated: 2026-03-24
 ## Cutting Tools
 
 ### Job-Site Table Saw
-- **Type:** Portable/job-site
-- **Blade:** 10"
+- **Type:** Ryobi 13 Amp Compact Portable Corded Jobsite Table Saw
+- **Blade:** 8-1/4"
 - **Rip capacity:** ___ " (measure and fill in)
 - **Max depth of cut at 90°:** ~3-1/8"
 - **Max depth of cut at 45°:** ~2-1/4"
@@ -15,7 +15,7 @@ Last updated: 2026-03-24
 - **Limitations:** Limited rip capacity compared to cabinet saw; not ideal for full 4x8 sheet breakdown
 
 ### 10" Miter Saw
-- **Type:** ___ (sliding compound? single bevel? dual bevel?)
+- **Type:** Ryobi 15 Amp 10" Corded Sliding Compound Miter Saw
 - **Max crosscut at 90°:** ~6" (verify for your model)
 - **Max crosscut at 45°:** ~4" (verify)
 - **Bevel range:** ___
@@ -66,18 +66,27 @@ Last updated: 2026-03-24
 ### Multi-tool
 - **Notes:** Flush cuts, undercutting trim for scribing, detail work during installation
 
+### 18 Gauge Brad Nailer
+- **Notes:** Cordless, AirStrike
+
+### 16 Gauge Finish Nailer
+- **Notes:** Cordless, AirStrike
+
 ## Measuring / Layout
 
-- Tape measure(s): ___
-- Laser distance measurer: ___
-- Level(s): ___
+- Tape measure(s): 25ft
+- Laser distance measurer: 100ft
+- Level(s): 18in, 4ft
 - Speed square
 - Combination square
-- Angle finder: ___
 
 ## Clamps
 (List clamps as collection grows)
-- ___
+- 6" clutch clamp (2)
+- 12" clutch clamp (2)
+- 18" trigger clamp (2)
+- 36" trigger clamp (2)
+- 2" capacity square jawed ratcheting hand clamp with 2" throat depth (4)
 
 ## Safety Equipment
 - Hearing protection
@@ -89,4 +98,6 @@ Last updated: 2026-03-24
 
 ## Planned Additions
 (Tools you want to add in the future)
-- ___
+- Track Saw
+- Dust Collection
+- 
